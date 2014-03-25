@@ -1,3 +1,1 @@
-*************************************************
-Ma documentation personnelle pour Slackware Linux 
-*************************************************
+Ma documentation personnelle Slackware Linux
