@@ -1,0 +1,77 @@
+#################################################
+#### Installer Inkscape - Slackware 14.01 64 ####
+#################################################
+
+2014 - By TomToOmUch - cc by-sa
+
+MAJ : 26/03/2014
+
+Connect to slackbuilds.org using Lynx or your 
+X browser.
+
+//Connectez vous à l'adresse slackbuilds.org en
+utilisant Lynx ou le navigateur de l'interface
+graphique.//
+
+When you download content from sites with Lynx,
+it's saved in the current directory (the one you
+run Lynx from).
+
+//Lorsque vous téléchargez du contenu depuis des
+sites avec le navigateur en mode texte (Lynx), 
+celui-ci est sauvegardé dans le répertoire courant
+(celui depuis lequel vous avez exécuter Lynx).//
+
+You'll find Inkscape's dependencies in the order
+you must install them though the install order of
+Numpy and gsl don't seem to impact.
+
+//Vous trouverez les dépendances d'Inkscape dans
+l'ordre dans lequel il faut les installer.
+Toutefois, l'ordre d'installation de Numpy et gsl
+ne semble pas avoir d'impact sur le reste.//
+
+1. Numpy
+-> http://slackbuilds.org/repository/14.1/development/numpy/
+
+2. gsl
+-> http://slackbuilds.org/repository/14.1/libraries/gsl/
+
+3. BeautifulSoup
+-> http://slackbuilds.org/repository/14.1/libraries/BeautifulSoup/
+
+4. lxml
+-> http://slackbuilds.org/repository/14.1/python/lxml/
+
+5. mm-common
+-> http://slackbuilds.org/repository/14.1/development/mm-common/
+
+6. libsigc++
+-> http://slackbuilds.org/repository/14.1/libraries/libsigc++/
+
+7. glibmm
+-> http://slackbuilds.org/repository/14.1/libraries/glibmm/
+
+8. cairomm
+-> http://slackbuilds.org/repository/14.1/libraries/cairomm/
+
+9. pangomm
+-> http://slackbuilds.org/repository/14.1/libraries/pangomm/
+
+10. atkmm
+-> http://slackbuilds.org/repository/14.1/libraries/atkmm/
+
+11. gtkmm
+-> http://slackbuilds.org/repository/14.1/libraries/gtkmm/
+
+12. inkscape
+-> http://slackbuilds.org/repository/14.1/graphics/inkscape/
+
+
+*Inkscape & Dependencies Tree*
+
+Numpy seems to show a lot of warning messages :
+
+
+WORK IN PROGRESS !
+
