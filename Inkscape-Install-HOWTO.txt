@@ -26,21 +26,27 @@ You'll find Inkscape's dependencies in the order
 you must install them though the install order of
 Numpy and gsl don't seem to impact.
 
-//Vous trouverez les dépendances d'Inkscape dans
+//Vous trouverez, ci-dessous, les dépendances d'Inkscape dans
 l'ordre dans lequel il faut les installer.
 Toutefois, l'ordre d'installation de Numpy et gsl
 ne semble pas avoir d'impact sur le reste.//
 
-1. Numpy
+The underlined dependencies' names are the 4 main dependencies, 2 of them
+having their own dependencies tree.
+
+//Les noms de dépendances soulignés sont les 4 dépendances principales,
+2 sur celles-ci générant leur propre arbre de dépendances.// 
+
+1. _Numpy_
 -> http://slackbuilds.org/repository/14.1/development/numpy/
 
-2. gsl
+2. _gsl_
 -> http://slackbuilds.org/repository/14.1/libraries/gsl/
 
 3. BeautifulSoup
 -> http://slackbuilds.org/repository/14.1/libraries/BeautifulSoup/
 
-4. lxml
+4. _lxml_
 -> http://slackbuilds.org/repository/14.1/python/lxml/
 
 5. mm-common
@@ -61,16 +67,100 @@ ne semble pas avoir d'impact sur le reste.//
 10. atkmm
 -> http://slackbuilds.org/repository/14.1/libraries/atkmm/
 
-11. gtkmm
+11. _gtkmm_
 -> http://slackbuilds.org/repository/14.1/libraries/gtkmm/
 
 12. inkscape
 -> http://slackbuilds.org/repository/14.1/graphics/inkscape/
 
+When properly downloaded, decompressed and sorted, inkscape and dependencies
+should give you a tree like the one below.
 
-*Inkscape & Dependencies Tree*
+//Lorsqu'Inkscape et ses dépendances sont correctement téléchargées, 
+décompressées et classées, vous devriez obtenir un arbre comme ci-dessous.//
+ 
+inkscape
+|-- doinst.sh
+|-- gsl
+|   |-- gsl-1.16.tar.gz
+|   |-- gsl.info
+|   |-- gsl.SlackBuild
+|   |-- README
+|   `-- slack-desc
+|-- gtkmm
+|   |-- atkmm
+|   |   |-- atkmm-2.22.7.tar.xz
+|   |   |-- atkmm.info
+|   |   |-- atkmm.SlackBuild
+|   |   |-- pangomm
+|   |   |   |-- cairomm
+|   |   |   |   |-- cairomm-1.10.0.tar.gz
+|   |   |   |   |-- cairomm.info
+|   |   |   |   |-- cairomm.SlackBuild
+|   |   |   |   |-- glibmm
+|   |   |   |   |   |-- glibmm-2.36.2.tar.xz
+|   |   |   |   |   |-- glibmm.info
+|   |   |   |   |   |-- glibmm.SlackBuild
+|   |   |   |   |   |-- libsigc++
+|   |   |   |   |   |   |-- libsigc++-2.2.11.tar.xz
+|   |   |   |   |   |   |-- libsigc++.info
+|   |   |   |   |   |   |-- libsigc++.SlackBuild
+|   |   |   |   |   |   |-- README
+|   |   |   |   |   |   `-- slack-desc
+|   |   |   |   |   |-- README
+|   |   |   |   |   `-- slack-desc
+|   |   |   |   |-- README
+|   |   |   |   `-- slack-desc
+|   |   |   |-- pangomm-2.34.0.tar.xz
+|   |   |   |-- pangomm.info
+|   |   |   |-- pangomm.SlackBuild
+|   |   |   |-- README
+|   |   |   `-- slack-desc
+|   |   |-- README
+|   |   `-- slack-desc
+|   |-- gtkmm-2.24.4.tar.xz
+|   |-- gtkmm.info
+|   |-- gtkmm.SlackBuild
+|   |-- mm-common
+|   |   |-- mm-common-0.9.6.tar.xz
+|   |   |-- mm-common.info
+|   |   |-- mm-common.SlackBuild
+|   |   |-- README
+|   |   `-- slack-desc
+|   |-- README
+|   `-- slack-desc
+|-- inkscape-0.48.4.tar.gz
+|-- inkscape.info
+|-- inkscape.SlackBuild
+|-- lxml
+|   |-- BeautifulSoup
+|   |   |-- BeautifulSoup-3.2.1.tar.gz
+|   |   |-- BeautifulSoup.info
+|   |   |-- BeautifulSoup.SlackBuild
+|   |   |-- README
+|   |   `-- slack-desc
+|   |-- lxml-3.3.2.tar.gz
+|   |-- lxml.info
+|   |-- lxml.SlackBuild
+|   |-- README
+|   `-- slack-desc
+|-- numpy
+|   |-- numpy-1.8.0.tar.gz
+|   |-- numpy.info
+|   |-- numpy.SlackBuild
+|   |-- README
+|   `-- slack-desc
+|-- README
+|-- remove-stray-comma.diff
+`-- slack-desc
 
-Numpy seems to show a lot of warning messages :
+11 directories, 62 files
+
+Maintenant, il s'agit d'effectuer les compilations dans le bon ordre et de
+faire de même pour les installations de paquets, en commencant par les
+branches les plus basses de l'arborescence !
+
+
 
 
 WORK IN PROGRESS !
