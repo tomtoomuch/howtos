@@ -1,6 +1,19 @@
+#####################################################################
+########## INSTALLATION DU CMS CMS Made Simple sur un ###############
+##########                Serveur LAMP                ###############
+#####################################################################
 
+cc-by-sa-nc - Avril 2014 - Jérôme TARI, Thomas DUPRESSOIR
 
-1. Création dans /var/www/vhosts/CMSMadeSimple/htdocs
+Votre serveur LAMP doit être fonctionnel.
+
+- Apache
+- PHP
+- MySQL
+
+---------------------------------------------------------------------
+
+1. Créer CMSMadeSimple  dans /var/www/vhosts/cmsmadeimple/htdocs
 
 # mkdir -pv /var/www/vhosts/cmsmadesimple/htdocs 
 mkdir: création du répertoire « /var/www/vhosts/cmsmadesimple »
@@ -21,14 +34,14 @@ Rajouter une stance cms.hyacinthe
 </VirtualHost>
 
 
-#3. Ajouter le domaine sur /etc/hosts et /var/named/zone.mles.masdelondres
+3. Ajouter le domaine sur /etc/hosts et /var/named/zone.mles.masdelondres
 
 # cmsmadesimple.hyacinthe     IN A 192.168.2.1
 
 
 4. Créer une base mysql et un utilisateur non privilégié
 
-/!\ Attention l'utilisateur Mysql doit faire de 16 caractères
+/!\ Attention l'utilisateur Mysql doit faire moins de 16 caractères
 
 [root@hyacinthe:vhosts] # mysql -u root -p
 Enter password: 
@@ -60,7 +73,7 @@ MariaDB [(none)]> create database cmsmadesimple
 
 
 
-5 Télécharger CMSMadeSimple
+5. Télécharger CMSMadeSimple
 
 Créer un répertoire dans /root
 # mkdir -pv /root/CMSMadeSimple
@@ -72,7 +85,7 @@ ls
 cmsmadesimple-1.11.10-english.tar.gz
 cmsmadesimple-1.11.10-langpack-fr_FR.tar.gz
 
-6 Dézipper et déployer dans l'hébergement /var/www/vhosts/cms/htdocs
+6. Dézipper et déployer dans l'hébergement /var/www/vhosts/cms/htdocs
 
 # mkdir -p /root/CMS
 # cd CMS
@@ -80,25 +93,25 @@ cmsmadesimple-1.11.10-langpack-fr_FR.tar.gz
 # tar xvzf cmsmadesimple-1.11.10-.langpack-fr_FR.tar.gz
 # rm -rf *.tar.gz 
 
-/!\ Attention, il faut décompresser l'archive du pack FR au dans le même
+/!\ Attention, il faut décompresser l'archive du pack FR dans le même
 répertoire que l'archive du CMS en EN_US
 
 # mv -pv /root/CMS/* /var/www/vhosts/cmsmadesimple/htdocs/
 # chown -R apache:apache /var/www/vhosts/cmsmadesimple/
 
-# 7 Redémarrer Apache /etc/rc.d/rc.httpd restart
+7. Redémarrer Apache /etc/rc.d/rc.httpd restart
 
-# 8 Se connecter avec Links ou Firefox 
+8. Se connecter avec Links ou Firefox 
 
 # links http://cmsmadesimple.hyacinthe
 
-9 Choisir la langue d'installation
-10 L'installation vous indique ensuite que la procédure d'installation
+9. Choisir la langue d'installation
+10. L'installation vous indique ensuite que la procédure d'installation
 comporte 7 étapes que nous allons suivre pas à pas.
 
-11 Vérif checksum cmsmadesimple-x.x.x....dat
+11. Vérif checksum cmsmadesimple-x.x.x....dat
 
-12 L'interface d'installation de CMSMS vous affiche des recommandations de
+12. L'interface d'installation de CMSMS vous affiche des recommandations de
 configuration du fichier /etc/httpd/php.ini
 
 # max_execution_time = 120
