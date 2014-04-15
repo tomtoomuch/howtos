@@ -1,0 +1,121 @@
+
+
+1. Création dans /var/www/vhosts/CMSMadeSimple/htdocs
+
+# mkdir -pv /var/www/vhosts/cmsmadesimple/htdocs 
+mkdir: création du répertoire « /var/www/vhosts/cmsmadesimple »
+mkdir: création du répertoire « /var/www/vhosts/cmsmadesimple/htdocs »
+
+2. Editer /etc/httpd/extra/httpd-vhosts.conf
+
+Rajouter une stance cms.hyacinthe
+
+# CMS Made Simple 
+<VirtualHost *:80>
+    ServerAdmin thomas.dupressoir@atout-tic.fr
+    DocumentRoot "/srv/httpd/vhosts/cmsmadesimple/htdocs"
+    ServerName cmsmadesimple.hyacinthe.mles.masdelondres
+    ServerAlias cmsmadesimple.hyacinthe
+    ErrorLog "/var/log/httpd/cmsmadesimple-error_log"
+    CustomLog "/var/log/httpd/cmsmadesimple-access_log" common
+</VirtualHost>
+
+
+#3. Ajouter le domaine sur /etc/hosts et /var/named/zone.mles.masdelondres
+
+# cmsmadesimple.hyacinthe     IN A 192.168.2.1
+
+
+4. Créer une base mysql et un utilisateur non privilégié
+
+/!\ Attention l'utilisateur Mysql doit faire de 16 caractères
+
+[root@hyacinthe:vhosts] # mysql -u root -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 31
+Server version: 5.5.35-MariaDB MariaDB Server
+
+Copyright (c) 2000, 2013, Oracle, Monty Program Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create database cmsmadesimple
+    -> ;
+    Query OK, 1 row affected (0.00 sec)
+
+    MariaDB [(none)]> use cmsmadesimple
+    Database changed
+    MariaDB [cmsmadesimple]> grant all on cmsmadesimple.* to
+    cmsmadesimpleuser;
+    ERROR 1470 (HY000): String 'cmsmadesimpleuser' is too long for user name
+    (should be no longer than 16)
+    MariaDB [cmsmadesimple]> grant all on cmsmadesimple.* to cmsmadesimpleuser
+        -> identified by '1234';
+        ERROR 1470 (HY000): String 'cmsmadesimpleuser' is too long for user
+        name (should be no longer than 16)
+        MariaDB [cmsmadesimple]> grant all on cmsmadesimple.* to cmsuser
+        identified by '1234';
+        Query OK, 0 rows affected (0.00 sec)
+
+
+
+5 Télécharger CMSMadeSimple
+
+Créer un répertoire dans /root
+# mkdir -pv /root/CMSMadeSimple
+# cd CMS
+# links http://www.cmsmadesimple.fr/telecharger-cms
+# Télécharger le package en anglais puis français
+
+ls
+cmsmadesimple-1.11.10-english.tar.gz
+cmsmadesimple-1.11.10-langpack-fr_FR.tar.gz
+
+6 Dézipper et déployer dans l'hébergement /var/www/vhosts/cms/htdocs
+
+# mkdir -p /root/CMS
+# cd CMS
+# tar xvzf cmsmadesimple-1.11.10-english.tar.gz
+# tar xvzf cmsmadesimple-1.11.10-.langpack-fr_FR.tar.gz
+# rm -rf *.tar.gz 
+
+/!\ Attention, il faut décompresser l'archive du pack FR au dans le même
+répertoire que l'archive du CMS en EN_US
+
+# mv -pv /root/CMS/* /var/www/vhosts/cmsmadesimple/htdocs/
+# chown -R apache:apache /var/www/vhosts/cmsmadesimple/
+
+# 7 Redémarrer Apache /etc/rc.d/rc.httpd restart
+
+# 8 Se connecter avec Links ou Firefox 
+
+# links http://cmsmadesimple.hyacinthe
+
+9 Choisir la langue d'installation
+10 L'installation vous indique ensuite que la procédure d'installation
+comporte 7 étapes que nous allons suivre pas à pas.
+
+11 Vérif checksum cmsmadesimple-x.x.x....dat
+
+12 L'interface d'installation de CMSMS vous affiche des recommandations de
+configuration du fichier /etc/httpd/php.ini
+
+# max_execution_time = 120
+# upload_max_filesize = 20M
+# post_max_size = 20M
+
+# /etc/rc.d/rc.httpd restart
+
+# Il faut être vigilant, lors de l'étape 5, à bien saisir les informations
+# concernant la base de données MySQL avant de continuer.
+# Les étapes sont ensuites très claires et bien expliciter, il vous suiffit
+# donc de LIRE ce qui se passe et de cliquer (comme une poule) jusqu'à la fin
+# de l'installation.
+
+# Félicitations.
+
+vim : txt
+vim : 
+
+
