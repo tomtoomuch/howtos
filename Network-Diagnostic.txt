@@ -1,0 +1,59 @@
+##############################################################################
+##########  Do a network diagnostic on an existing infrastructure  ###########
+##############################################################################
+
+1. Se connecter au réseau
+
+//Dans mon cas, la connexion se fait à l'aide du réseau WiFi
+
+2. Etablir une 'carte' du réseau à l'aide de la commande nmap 192.168.x.* qui
+renvoie l'ensemble des machines connectées ainsi que leur adresse IP et les
+services accessibles depuis le réseau sur chacune d'entre elles.
+
+Pour que la commande nmap ne vous renvoie que le nom des machines et leur
+adresse IP, il suffit d'injecter à l'aide d'un pipe | le résultat de la
+commande nmap dans une commande grep scan comme ceci :
+$ nmap 192.168.1.* | grep scan
+
+3. Si cela vous est possible (c'est préférable), connectez vous au serveur
+dhcp, au routeur ou à la box en activité sur le réseau afin d'obtenir plus de
+détails.
+
+//Sur les Livebox d'Orange, il est par exemple possible de visualiser
+//l'ensemble des machines connectées au réseau mais également l'ensemble des
+//machines qui ont déjà été connectées mais qui ne sont pas connectées à
+//l'heure actuelle.
+
+//Dans le cadre de mon stage et dans un souci de praticité et d'apprentissage,
+//je compte déployer un serveur web sous Slackware sur lequel j'installerai
+//GLPI couplé à OCS Inventory NG afin d'établir un inventaire du réseau...
+
+4. Installation d'un serveur Slackware : installation LAN server classique mais
+1 seule interface réseau (192.168.1.254) sans config DHCP ni DNS.
+
+Ouverture du port 80 du pare-feu (cp
+/root/slackware/MLES-14.1-32bit/config/firewall/rc.firewall.lan.server
+/etc/rc.d/rc.firewall
+
+4. Installation d'un serveur Slackware : installation LAN server classique mais
+1 seule interface réseau (192.168.1.254) sans config DHCP ni DNS.
+
+Ouverture du port 80 du pare-feu (cp
+/root/slackware/MLES-14.1-32bit/config/firewall/rc.firewall.lan.server
+/etc/rc.d/rc.firewall
+
+4. Installation d'un serveur Slackware : installation LAN server classique mais
+1 seule interface réseau (192.168.1.254) sans config DHCP ni DNS.
+
+Ouverture du port 80 du pare-feu (cp
+/root/slackware/MLES-14.1-32bit/config/firewall/rc.firewall.lan.server
+/etc/rc.d/rc.firewall
+
+4. Installation d'un serveur Slackware : installation LAN server classique mais
+1 seule interface réseau (192.168.1.254) sans config DHCP ni DNS.
+
+Ouverture du port 80 du pare-feu (cp
+/root/slackware/MLES-14.1-32bit/config/firewall/rc.firewall.lan.server
+/etc/rc.d/rc.firewall
+
+

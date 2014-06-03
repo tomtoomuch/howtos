@@ -1,0 +1,67 @@
+###############################################################################
+########### Zentyal 3.4 Install and Configuration for a Fileserver ############
+###############################################################################
+
+Juin 2014 - CC-by-nc-sa - Thomas DUPRESSOIR - thomas.dupressoir@atout-tic.fr
+
+########### Description #######################################################
+
+Ce How-To décrit ma démarche d'installation d'un serveur de fichiers Zentyal
+pour un réseau Windows dont la connexion Internet est fournie par une Livebox 3
+par Sagemcom (firmware SoftAtHome SG30_h323-fr-4.28.35.2).
+
+La plage DHCP du serveur Livebox va de 192.168.1.10 à 192.168.1.150
+
+La machine sur laquelle j'installe Zentyal est un Dell Optiplex GX520 équipé
+d'un processeur Intel Pentium D Dual Core cadencé à 2,8 GHz, de 1 Go de R.A.M.
+et de 80 Go de disque dur SATA.
+
+Il dispose d'une unique interface réseau (eth0)
+
+1. Démarrer la machine sur la clé USB ou le CD-Rom
+
+2. Vous pouvez par le biais de ce menu choisir d'installer Ubuntu 13.10 ou un
+serveur Zentyal 3.4. Il faut donc choisir <Install Zentyal Server 3.4>
+
+3. Ne connaissant pas encore ce système d'exploitation, nous choisissons de
+faire une installation minimale 
+
+[...WORK IN PROGRESS...]
+
+
+10. Après l'installation des modules, Zentyal lance l'Assistant de première
+configuration :
+
+	10.1. Type d'interface : interne ou externe
+				Ici, comme nous testons la distribution et sa pertinence sur le réseau
+				qui nous occupe, nous choisirons la configuration par défaut <internal>
+
+	10.2. Interfaces réseaux
+				
+			Méthode : Aucune, DHCP, Static -> Static 			
+			Adresse IP : 192.168.1.253 (nous conservons	l'IP fixe 192.168.1.254 pour
+									 notre serveur DHCP-DNS/passerelle/routeur
+			Masque de sous-réseau : 255.255.255.0 (il est possible de sélectionner
+			d'autres masques préconfigurés dans un menu déroulant)
+			Passerelle : 192.168.1.1 (en l'occurence l'adresse IP de la Livebox)
+			Serveur de noms : 192.168.1.1 (pour l'instant, notre Livebox également)
+
+	10.3. Connexion à un domaine Active Directory
+
+[...WORK IN PROGRESS...]
+
+	10.4. Création d'un compte d'enregistrement de Zentyal
+
+			Zentyal vous propose de créer un compte pour bénéficier de service comme
+			la sauvegarde dans le nuage ou un sous-domaine dans le domaine Zentyal.
+			Je passe
+
+	10.5. Zentyal effectue ensuite la mise à jour de la configuration des modules
+	précédemment installés.
+
+	10.6. L'installation de Zentyal Server 3.4 est maintenant terminée et l'OS
+	vous propose de vous rendre sur votre tableau de bord (dashboard).
+
+11. Configuration des services
+
+[...WORK IN PROGRESS...]
